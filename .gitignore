@@ -1,0 +1,12 @@
+.idea/
+cmake-build-*/
+Dataset/
+doc/
+build/
+stopwords.txt
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
