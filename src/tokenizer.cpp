@@ -35,10 +35,10 @@ std::string ir::remove_punctuation(const std::string& token) {
     // (' will be removed)
     auto to_remove = [](const char c) { return c != '\'' && !isalnum(c); };
     // remove any kind of punct from the start and end of the word
-    for (size_t i = 0; to_remove(result[i]); ++i) {
+    for (size_t i = 0; i < result.size() && to_remove(result[i]); ++i) {
         result[i] = '\'';
     }
-    for (size_t i = result.size() - 1; to_remove(result[i]); --i) {
+    for (int i = result.size() - 1; i >= 0 && to_remove(result[i]); --i) {
         result[i] = '\'';
     }
     result.erase(std::remove(result.begin(), result.end(), '\''), result.end());

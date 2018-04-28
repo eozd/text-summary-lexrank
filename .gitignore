@@ -3,6 +3,7 @@ cmake-build-*/
 Dataset/
 doc/
 build/
+scoring/environment
 *.aux
 *.fdb_latexmk
 *.fls

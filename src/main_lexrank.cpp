@@ -38,7 +38,6 @@ static void print_summary(const std::vector<double>& lexrank_scores,
               });
 
     // print top 3 LexRank sentences
-    std::cout << "Summary" << std::endl;
     for (size_t i = 0; i < 3; ++i) {
         std::cout << raw_doc.sentences[scores_indices[i].second] << std::endl;
     }
