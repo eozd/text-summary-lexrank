@@ -22,6 +22,8 @@ ir::docs_from_files(const std::vector<std::string>& file_list) {
     for (const std::string& filepath : file_list) {
         // parse document and document id
         std::ifstream ifs(filepath);
+        assert(ifs && "File couldn't be opened to read in ir::docs_from_files");
+
         size_t doc_id = ir::doc_id_from_filepath(filepath);
         auto doc = ir::parse_doc_file(ifs);
 

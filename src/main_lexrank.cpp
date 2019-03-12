@@ -73,10 +73,10 @@ int main(int argc, char** argv) {
     std::vector<std::string> file_list = {filepath};
 
     // parse document and create raw document
-    auto raw_docs = ir::docs_from_files(file_list);
+    const auto raw_docs = ir::docs_from_files(file_list);
 
     // normalize document
-    auto norm_docs = ir::normalized_docs_from_raw_docs(raw_docs);
+    const auto norm_docs = ir::normalized_docs_from_raw_docs(raw_docs);
 
     // read IDF scores
     std::unordered_map<std::string, double> idf_scores;
@@ -86,9 +86,9 @@ int main(int argc, char** argv) {
     }
 
     // get ID and raw/normalized version of target document
-    size_t doc_id = ir::doc_id_from_filepath(filepath);
-    ir::RawDocument rawdoc_to_process = raw_docs[doc_id];
-    ir::NormalizedDocument doc_to_process = norm_docs[doc_id];
+    const size_t doc_id = ir::doc_id_from_filepath(filepath);
+    const ir::RawDocument rawdoc_to_process = raw_docs.at(doc_id);
+    const ir::NormalizedDocument doc_to_process = norm_docs.at(doc_id);
 
     // compute LexRank scores
     std::vector<double> lexrank_scores = lexrank(doc_to_process, idf_scores);

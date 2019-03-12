@@ -1,0 +1,49 @@
+\documentclass{article}
+
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[utf8]{inputenc}
+
+\title{CmpE493 Assignment 3}
+\author{Eşref Özdemir\\2013400144}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Data Preprocessing}
+We perform the same data preprocessing steps as done in assignment 1 and 2. That
+is, sentences of each document is tokenized and normalized separately. Normalization
+process includes case folding, punctuation removal and stemming. We compute
+tf-idf vectors based on this new document representation.
+
+\section{LexRank}
+After obtanining normalized documents, we uset the LexRank method to get the
+most important 3 sentences. We set the teleportation rate (damping factor) of
+the underlying Markov Chain to 0.15.
+
+\section{ROUGE Scores}
+ROUGE scores are calculated using the library given in the assignment
+description. Python script to compute ROUGE scores are given in the scoring
+directory.
+
+\begin{table}[H]
+	\caption{ROUGE Scores}
+	\centering
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\textbf{Metric} & \textbf{F1-Score} & \textbf{Precision} & \textbf{Recall} \\
+		\hline
+		Rouge-1 & 0.301932 & 0.235734 & 0.45216 \\
+		\hline
+		Rouge-2 & 0.104655 & 0.078466 & 0.173119 \\
+	 	\hline
+		Rouge-L & 0.208407 & 0.191422 & 0.402338 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\end{document}
